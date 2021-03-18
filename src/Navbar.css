@@ -1,0 +1,307 @@
+.head{
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(31, 58, 147, .7);
+    transition: top 0.2s ;
+    transition-delay: 0.5s;
+}
+
+.navigation{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+
+.menu-btn{
+    height: 30px;
+    margin-left: 15px;
+    position: relative;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.line{
+    width: 32px;
+    height: 5px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.line::before, .line::after {
+    border-radius: 2px;
+    position: absolute;
+    content: "";
+    width: 32px;
+    height: 5px;
+    background-color: white;
+    transition: transform 0.5s;
+}
+
+.line::before {
+    transform: translateY(-10px);
+}
+
+.line::after {
+    transform: translateY(10px);
+}
+
+.open.line{
+    transform: translateX(-10px);
+    background-color: transparent;
+}
+
+.open.line::before{
+    transform: rotate(-45deg) translate(8px, 8px);
+}
+
+.open.line::after{
+    transform: rotate(45deg) translate(8px, -8px);
+}
+
+
+
+
+.drop-buttons{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    color: white;
+    width: 70px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.3s;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.drop-buttons:after{
+    padding-top: 2px;
+    margin: 6px;
+    display: block;
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url("https://www.countryflags.io/gb/flat/32.png");
+}
+
+.list{
+    display: none;
+    background: rgba(247,148,0,0.95);
+    margin-left: 7px;
+    border-radius: 6px;
+    position: absolute;
+    color: white;
+    flex-direction: column;
+    width: 70px;
+}
+
+.triangle {
+    border-radius: 10%;
+    margin-top: -15px;
+    margin-left: 15px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid white;
+}
+
+.dropbar:hover .list{
+    display: flex;
+}
+
+.country-ru, .country-ge, .country-fr, .country-lt, .country-tr{
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+    font-family: 'Open Sans Condensed', sans-serif;    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.country-ru:after, .country-ge:after, .country-fr:after, .country-lt:after, .country-tr:after{
+    margin-right: 2px;
+    display: block;
+    content: "";
+    width: 32px;
+    height: 32px;
+}
+
+.country-ru:after{
+    background-image: url("https://www.countryflags.io/ru/flat/32.png");
+}
+
+.country-ge:after{
+    background-image: url("https://www.countryflags.io/ge/flat/32.png");
+}
+
+.country-fr:after{
+    background-image: url("https://www.countryflags.io/fr/flat/32.png");
+}
+
+.country-lt:after{
+    background-image: url("https://www.countryflags.io/lt/flat/32.png");
+}
+
+.country-tr:after{
+    background-image: url("https://www.countryflags.io/tr/flat/32.png");
+}
+
+.country-ru:hover, .country-ge:hover, .country-fr:hover, .country-lt:hover, .country-tr:hover{
+    color: white;
+    text-decoration: none;
+}
+
+
+img{
+    margin-left: 20px;
+    width: 150px;
+    height: auto;
+}
+
+
+.pop-up {
+    z-index: 2;
+    margin-top: 60px;
+    left: -100%;
+    position: absolute;
+    height: calc(100vh - 60px);
+    width: 100%;
+    background: rgba(247,148,0,.9);
+    transition: left .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+
+}
+
+.pop-up-click.pop-up{
+    left: 0;
+    box-shadow:  8px 5px 15px 5px rgba(0,0,0,0.1)
+}
+
+.toggle-menu{
+    width: 100%;
+    height: 800%;
+    display: flex;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px;
+    width: 100%;
+    height: 80px;
+    color: white;
+    font-size: 50px;
+    transition: all 0.3s;
+    font-family: 'Anton', sans-serif;
+}
+
+
+.buttons:hover{
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 60px;
+    color: rgba(247,148,0,.9);
+    background: rgba(255,255,255,1);
+}
+
+
+.toggle-menu-nav{
+    display: none;
+}
+
+.lang-with-buttons{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 700px) {
+    .pop-up{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .head{
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-btn{
+        display: none;
+    }
+
+    .navigation{
+        width: 90%;
+        display: flex;
+    }
+
+    .toggle-menu-nav{
+        display: flex;
+    }
+
+    .pop-up{
+        display: none;
+    }
+
+    .buttons{
+        height: 60px;
+        width: 125px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .buttons:hover{
+        background: transparent;
+        border-bottom: solid 8px white;
+        letter-spacing: 1px;
+        font-size: 25px;
+        color: white;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .navigation{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .navigation{
+        width: 60%;
+    }
+}
+
+@media (hover: none) {
+    .dropbar:hover .list{
+        display: none;
+    }
+
+    .dropbar:hover.barclick .list{
+        display: flex;
+    }
+}
